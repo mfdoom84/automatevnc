@@ -1,0 +1,14 @@
+# =============================================================================
+# AutoVNC Runner Dependencies
+# =============================================================================
+
+# VNC client
+vncdotool==1.2.0
+
+# Computer vision
+opencv-python-headless==4.9.0.80
+numpy==1.26.4
+
+# OCR
+pytesseract==0.3.10
+Pillow==10.2.0

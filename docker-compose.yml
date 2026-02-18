@@ -1,0 +1,68 @@
+
+
+services:
+  # =============================================================================
+  # Frontend - React Web Workshop
+  # =============================================================================
+  frontend:
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "${HOST_BIND_ADDRESS:-127.0.0.1}:${FRONTEND_PORT:-3000}:80"
+    depends_on:
+      - backend
+    environment:
+      - VITE_API_URL=http://localhost:${BACKEND_PORT:-8080}
+    networks:
+      - autovnc-network
+
+  # =============================================================================
+  # Backend - FastAPI Orchestrator
+  # =============================================================================
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "${HOST_BIND_ADDRESS:-127.0.0.1}:${BACKEND_PORT:-8080}:8080"
+    volumes:
+      - autovnc-data:/data
+      - /var/run/docker.sock:/var/run/docker.sock  # For spawning runner containers
+    environment:
+      - DATA_DIR=/data
+      - AI_PROVIDER=${AI_PROVIDER:-openai}
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - GITHUB_MODELS_API_KEY=${GITHUB_MODELS_API_KEY:-}
+      - RUNNER_IMAGE=autovnc-runner:latest
+    networks:
+      - autovnc-network
+
+  # =============================================================================
+  # Runner - Headless Execution Worker (Template - built but not run directly)
+  # =============================================================================
+  runner:
+    build:
+      context: ./runner
+      dockerfile: Dockerfile
+    image: autovnc-runner:latest
+    profiles:
+      - build-only  # Only builds the image, doesn't run as a service
+    volumes:
+      - autovnc-data:/data
+    networks:
+      - autovnc-network
+
+# =============================================================================
+# Networks
+# =============================================================================
+networks:
+  autovnc-network:
+    driver: bridge
+
+# =============================================================================
+# Volumes
+# =============================================================================
+volumes:
+  autovnc-data:
+    driver: local

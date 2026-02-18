@@ -1,0 +1,124 @@
+.snippet-library {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    background: var(--color-bg-secondary);
+    font-size: 12px;
+}
+
+.library-header {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--color-bg-tertiary);
+    flex-shrink: 0;
+}
+
+.library-header h3 {
+    margin: 0 0 2px 0;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+.library-header p {
+    margin: 0;
+    font-size: 11px;
+    color: var(--color-text-muted);
+}
+
+.library-scroll {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 8px;
+}
+
+.snippet-group {
+    margin-bottom: 12px;
+}
+
+.snippet-group:last-child {
+    margin-bottom: 0;
+}
+
+.group-title {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    margin: 0 0 4px 4px;
+}
+
+.group-items {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.snippet-item {
+    display: flex;
+    align-items: center;
+    padding: 5px 8px;
+    background: var(--color-bg-tertiary);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.15s, border-color 0.15s;
+    width: 100%;
+}
+
+.snippet-item:hover {
+    background: var(--color-bg-elevated);
+    border-color: var(--color-accent-primary);
+}
+
+.item-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 4px;
+    margin-right: 8px;
+    color: var(--color-accent-primary);
+}
+
+.item-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.item-name {
+    font-weight: 500;
+    font-size: 12px;
+    color: var(--color-text-primary);
+    margin-bottom: 1px;
+}
+
+.item-code {
+    font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+    font-size: 10px;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+.library-footer {
+    padding: 8px 12px;
+    border-top: 1px solid var(--color-bg-tertiary);
+    background: var(--color-bg-secondary);
+    flex-shrink: 0;
+}
+
+.library-footer .tip {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+    color: var(--color-text-muted);
+}

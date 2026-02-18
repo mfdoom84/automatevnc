@@ -1,0 +1,50 @@
+/* =============================================================================
+   Settings Panel Styles
+   ============================================================================= */
+
+.settings-panel {
+    width: 480px;
+}
+
+.settings-section {
+    margin-bottom: 24px;
+}
+
+.settings-section h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.section-description {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    margin-bottom: 16px;
+}
+
+.key-status {
+    margin-left: 8px;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.key-status.configured {
+    color: var(--color-success);
+}
+
+.settings-message {
+    padding: 12px;
+    border-radius: var(--radius-md);
+    font-size: 13px;
+    margin-top: 16px;
+}
+
+.settings-message.success {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--color-success);
+}
+
+.settings-message.error {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--color-error);
+}

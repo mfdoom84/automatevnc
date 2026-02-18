@@ -1,0 +1,36 @@
+/* =============================================================================
+   Connection Dialog Styles
+   ============================================================================= */
+
+.connection-dialog {
+    width: 420px;
+}
+
+.test-result {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+    border-radius: var(--radius-md);
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+.test-result.ok {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--color-success);
+}
+
+.test-result.error {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--color-error);
+}
+
+.test-result.warning {
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--color-warning);
+}
+
+.result-icon {
+    font-size: 16px;
+}

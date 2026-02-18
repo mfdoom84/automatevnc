@@ -1,0 +1,126 @@
+/**
+ * ScriptEditor – code-only view styles
+ */
+
+.script-editor {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: var(--color-bg-secondary);
+    overflow: hidden;
+}
+
+.script-editor-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    height: 40px;
+    background: var(--color-bg-secondary);
+    border-bottom: 1px solid var(--color-bg-tertiary);
+    flex-shrink: 0;
+}
+
+.script-editor-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+}
+
+.script-editor-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Unified Action Button Style */
+.script-editor-record-btn,
+.script-editor-action-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border: 1px solid var(--color-border, rgba(255, 255, 255, 0.08));
+    border-radius: 6px;
+    background: var(--color-bg-secondary);
+    color: var(--color-text-secondary);
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.script-editor-record-btn:hover,
+.script-editor-action-btn:hover {
+    background: var(--color-bg-primary);
+    color: var(--color-text-primary);
+}
+
+.script-editor-record-btn.recording {
+    background: rgba(239, 68, 68, 0.15);
+    color: #f87171;
+    border-color: rgba(239, 68, 68, 0.4);
+}
+
+.script-editor-action-btn.connected {
+    border-color: var(--color-success, #10b981);
+    color: var(--color-success, #10b981);
+    background: rgba(16, 185, 129, 0.05);
+}
+
+.script-editor-action-btn.connected:hover {
+    background: rgba(16, 185, 129, 0.1);
+}
+
+.action-divider {
+    width: 1px;
+    height: 20px;
+    background: var(--color-bg-tertiary);
+    margin: 0 4px;
+}
+
+.script-editor-record-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    filter: grayscale(1);
+}
+
+.record-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.script-editor-record-btn.recording .record-dot {
+    animation: script-editor-pulse 1s ease-in-out infinite;
+}
+
+@keyframes script-editor-pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+}
+
+.script-editor-body {
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: var(--color-bg-secondary);
+}
+
+.script-editor-body .code-editor {
+    border: none;
+    background: var(--color-bg-secondary);
+}
+
+.script-editor-body .editor-container {
+    border: none;
+}
