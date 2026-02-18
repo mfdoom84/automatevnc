@@ -22,7 +22,7 @@ AutomateVNC is built on top of the following technologies:
 
 1. **Setup**
    ```bash
-   git clone https://github.com/your-repo/AutomateVNC
+   git clone https://github.com/mfdoom84/automatevnc.git
    cd AutomateVNC
    cp .env.example .env
    ```
@@ -111,5 +111,11 @@ Note: If you change ports, restart services using `docker compose up -d` to upda
 *   **Port Conflicts**: Update `FRONTEND_PORT` or `BACKEND_PORT` in your `.env` file.
 *   **CORS Issues**: Ensure the browser URL matches the configured `FRONTEND_PORT`.
 *   **System Logs**: Use `docker compose logs -f backend` for real-time monitoring.
+
+---
+
+### License
+
+AutomateVNC is released under the [MIT License](LICENSE). 
 
 ---
