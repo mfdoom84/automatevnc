@@ -226,7 +226,20 @@ export default function VNCViewer({
 
         console.log('[VNC] Sending Step (Scroll):', stepData)
         onStep?.(stepData)
-    }, [isRecording, isPaused, screenWidth, screenHeight, onStep, isVerifyMode, isVerifyTextMode])
+        onInteraction?.(stepData)
+    }, [isRecording, isPaused, screenWidth, screenHeight, onStep, onInteraction, isVerifyMode, isVerifyTextMode])
+
+    // Manually attach wheel listener to avoid "passive event listener" error when calling preventDefault
+    // We use capture: true to ensure we see the event before noVNC intercepts it
+    useEffect(() => {
+        const wrapper = canavsWrapperRef.current
+        if (!wrapper) return
+
+        wrapper.addEventListener('wheel', handleWheelCapture, { passive: false, capture: true })
+        return () => {
+            wrapper.removeEventListener('wheel', handleWheelCapture, { capture: true })
+        }
+    }, [handleWheelCapture])
 
     // Drag detection state
     const dragDataRef = useRef(null)
@@ -739,7 +752,6 @@ export default function VNCViewer({
                     onMouseDownCapture={handleMouseDown}
                     onMouseMoveCapture={handleMouseMoveCapture}
                     onMouseUpCapture={handleMouseUpCapture}
-                    onWheelCapture={handleWheelCapture}
                 >
                     {/* Structural Shield to block all noVNC events in Verify Mode */}
                     {(isVerifyMode || isVerifyTextMode) && (

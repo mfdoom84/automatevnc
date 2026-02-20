@@ -17,7 +17,7 @@ export default function SnippetLibrary({ onInsert }) {
                 { name: 'Press Key', code: 'vnc.press("enter")', icon: Type, desc: 'Press a special key' },
                 { name: 'Drag', code: 'vnc.drag(x1, y1, x2, y2)', icon: Move, desc: 'Drag from point A to B' },
                 { name: 'Move Mouse', code: 'vnc.move(x, y)', icon: MousePointer, desc: 'Move mouse to coordinates' },
-                { name: 'Scroll', code: 'vnc.scroll("down", clicks=5)', icon: Scroll, desc: 'Scroll mouse wheel' },
+                { name: 'Scroll', code: 'vnc.scroll("down", 1, x, y)', icon: Scroll, desc: 'Scroll mouse wheel' },
             ]
         },
         {

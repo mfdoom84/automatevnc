@@ -441,6 +441,12 @@ function App() {
             case 'right_click':
                 snippet = `vnc.right_click(${stepData.x}, ${stepData.y})`
                 break
+            case 'scroll':
+                snippet = `vnc.scroll("${stepData.direction}", ${stepData.clicks}, ${stepData.x}, ${stepData.y})`
+                break
+            case 'drag':
+                snippet = `vnc.drag(${stepData.x}, ${stepData.y}, ${stepData.end_x}, ${stepData.end_y})`
+                break
             case 'type':
                 snippet = `vnc.type(${JSON.stringify(stepData.text)})`
                 break

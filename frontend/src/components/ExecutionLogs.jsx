@@ -68,8 +68,8 @@ const ExecutionLogs = ({ runId, isRecording }) => {
         return (
             <div className="logs-empty">
                 <Terminal size={48} strokeWidth={1} />
-                <h3>No execution active</h3>
-                <p>Run a script to see real-time logs here.</p>
+                <h3>No recording or execution active.</h3>
+                <p>Start recording and run a script to see real-time logs here.</p>
             </div>
         )
     }
