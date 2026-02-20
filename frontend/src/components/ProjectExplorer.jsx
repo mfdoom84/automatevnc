@@ -8,7 +8,7 @@ import {
 
 import ConfirmModal from './ConfirmModal'
 
-export default function ProjectExplorer({ currentScript, onSelect, onCreate }) {
+export default function ProjectExplorer({ currentScript, onSelect, onCreate, onDelete }) {
     const [scripts, setScripts] = useState([])
     const [loading, setLoading] = useState(true)
     const [filter, setFilter] = useState('')
@@ -81,6 +81,7 @@ export default function ProjectExplorer({ currentScript, onSelect, onCreate }) {
         try {
             await scriptsApi.delete(name)
             setConfirmDelete({ isOpen: false, scriptName: null })
+            onDelete?.(name)
             loadScripts()
             // If deleted script was current, parent might want to know (handled by parent typically)
         } catch (error) {

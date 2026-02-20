@@ -34,3 +34,30 @@
 .result-icon {
     font-size: 16px;
 }
+
+/* Hide Spinners for Port (Number) Input */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+/* Enhanced Input Styles for Dialog */
+.connection-dialog .form-input {
+    transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.connection-dialog .form-input:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.connection-dialog .form-input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}

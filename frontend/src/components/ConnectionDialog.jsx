@@ -92,7 +92,10 @@ export default function ConnectionDialog({ onConnect, onClose }) {
                                 type="number"
                                 className="form-input"
                                 value={port}
-                                onChange={(e) => setPort(parseInt(e.target.value))}
+                                onChange={(e) => setPort(parseInt(e.target.value) || '')}
+                                autoCorrect="off"
+                                autoComplete="off"
+                                spellCheck="false"
                             />
                         </div>
                         <div className="form-group">
