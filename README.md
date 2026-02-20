@@ -2,7 +2,7 @@
 
 AutomateVNC is a IDE for building VNC automation. Record your interactions, refine the Python scripts, and orchestrate them for headless execution.
 
-![Application Screenshot](docs/images/readme_screen.jpg)
+![Application Screenshot](docs/images/readme_screen.png)
 
 ---
 
